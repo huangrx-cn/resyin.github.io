@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="简介Git 是一款免费开源的分布式版本控制系统。区别于 Subversion 等版本控制系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异，而是对当时的全部文件制作一个快照并保存这个快照的索引。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简易的 Git 使用">
+<meta property="og:url" content="http://resyin.github.io/2017/02/18/simple-git-instructions/index.html">
+<meta property="og:site_name" content="Ya! Note">
+<meta property="og:description" content="简介Git 是一款免费开源的分布式版本控制系统。区别于 Subversion 等版本控制系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异，而是对当时的全部文件制作一个快照并保存这个快照的索引。">
+<meta property="og:updated_time" content="2017-02-18T00:15:17.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简易的 Git 使用">
+<meta name="twitter:description" content="简介Git 是一款免费开源的分布式版本控制系统。区别于 Subversion 等版本控制系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异，而是对当时的全部文件制作一个快照并保存这个快照的索引。">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>简易的 Git 使用</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/resyin">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/02/18/simple-http-instructions-1/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/02/18/hello-world/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://resyin.github.io/2017/02/18/simple-git-instructions/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&text=简易的 Git 使用"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&is_video=false&description=简易的 Git 使用"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=简易的 Git 使用&body=Check out this article: http://resyin.github.io/2017/02/18/simple-git-instructions/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&name=简易的 Git 使用&description=&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;Git 是一款免费开源的分布式版本控制系统。区别于 Subversion 等版本控制系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异，而是对当时的全部文件制作一个快照并保存这个快照的索引。&lt;/p&gt;"><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处于-Git-中的状态"><span class="toc-number">1.1.</span> <span class="toc-text">文件处于 Git 中的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的-Git-工作流程"><span class="toc-number">1.2.</span> <span class="toc-text">基本的 Git 工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-的初始配置"><span class="toc-number">1.4.</span> <span class="toc-text">Git 的初始配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取帮助"><span class="toc-number">1.5.</span> <span class="toc-text">获取帮助</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-本地仓库操作"><span class="toc-number">2.</span> <span class="toc-text">Git 本地仓库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化-Git-仓库"><span class="toc-number">2.1.</span> <span class="toc-text">初始化 Git 仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态文件查看"><span class="toc-number">2.2.</span> <span class="toc-text">状态文件查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加文件到暂存区"><span class="toc-number">2.3.</span> <span class="toc-text">添加文件到暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#还原修改且未暂存的文件"><span class="toc-number">2.4.</span> <span class="toc-text">还原修改且未暂存的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看修改且未暂存文件的详细差异信息"><span class="toc-number">2.5.</span> <span class="toc-text">查看修改且未暂存文件的详细差异信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看已暂存但未提交的详细差异信息"><span class="toc-number">2.6.</span> <span class="toc-text">查看已暂存但未提交的详细差异信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将已暂存的文件移除暂存区"><span class="toc-number">2.7.</span> <span class="toc-text">将已暂存的文件移除暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交暂存区文件到本地仓库"><span class="toc-number">2.8.</span> <span class="toc-text">提交暂存区文件到本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改提交"><span class="toc-number">2.9.</span> <span class="toc-text">更改提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看提交记录"><span class="toc-number">2.10.</span> <span class="toc-text">查看提交记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看分支"><span class="toc-number">2.11.</span> <span class="toc-text">查看分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建分支"><span class="toc-number">2.12.</span> <span class="toc-text">新建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除分支"><span class="toc-number">2.13.</span> <span class="toc-text">删除分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">2.14.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并分支"><span class="toc-number">2.15.</span> <span class="toc-text">合并分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">2.16.</span> <span class="toc-text">标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-远程仓库操作"><span class="toc-number">3.</span> <span class="toc-text">Git 远程仓库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地仓库与远程仓库的关联"><span class="toc-number">3.1.</span> <span class="toc-text">本地仓库与远程仓库的关联</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册GitHub"><span class="toc-number">3.1.1.</span> <span class="toc-text">注册GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成SSH-KEY"><span class="toc-number">3.1.2.</span> <span class="toc-text">生成SSH KEY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定SSH"><span class="toc-number">3.1.3.</span> <span class="toc-text">绑定SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">3.1.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">3.2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在本地克隆远程仓库"><span class="toc-number">3.2.1.</span> <span class="toc-text">在本地克隆远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加本地仓库为远程仓库"><span class="toc-number">3.2.2.</span> <span class="toc-text">添加本地仓库为远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程仓库"><span class="toc-number">3.2.3.</span> <span class="toc-text">查看远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交到远程仓库"><span class="toc-number">3.2.4.</span> <span class="toc-text">提交到远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步远程仓库"><span class="toc-number">3.2.5.</span> <span class="toc-text">同步远程仓库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考-amp-引用"><span class="toc-number">4.</span> <span class="toc-text">参考 & 引用</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        简易的 Git 使用
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Ya! Note</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-02-18T01:15:07.542Z" itemprop="datePublished">2017-02-18</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Git/">Git</a>, <a class="tag-link" href="/tags/GitHub/">GitHub</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Git 是一款免费开源的分布式版本控制系统。区别于 Subversion 等版本控制系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异，而是对当时的全部文件制作一个快照并保存这个快照的索引。</p>
+<a id="more"></a>
+<h2 id="文件处于-Git-中的状态"><a href="#文件处于-Git-中的状态" class="headerlink" title="文件处于 Git 中的状态"></a><span id="jump1">文件处于 Git 中的状态</span></h2><ul>
+<li>已提交（committed），数据已经安全的保存在本地数据库中</li>
+<li>已修改（modified），修改了文件，但还没保存到数据库中</li>
+<li>已暂存（staged），对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中</li>
+</ul>
+<h2 id="基本的-Git-工作流程"><a href="#基本的-Git-工作流程" class="headerlink" title="基本的 Git 工作流程"></a>基本的 Git 工作流程</h2><ol>
+<li><p>在工作目录中修改文件</p>
+</li>
+<li><p>暂存文件，将文件的快照放入暂存区域</p>
+</li>
+<li><p>提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录</p>
+</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><a href="http://git-scm.com/download/linux" target="_blank" rel="external">在 Linux 上安装</a></li>
+<li><a href="http://git-scm.com/download/mac" target="_blank" rel="external">在 Mac 上安装</a></li>
+<li><a href="http://git-scm.com/download/win" target="_blank" rel="external">在 Windows 上安装</a></li>
+</ul>
+<h2 id="Git-的初始配置"><a href="#Git-的初始配置" class="headerlink" title="Git 的初始配置"></a>Git 的初始配置</h2><p>Git 自带一个 git config 的工具来帮助设置控制 Git 外观和行为的配置变量。 这些变量存储在三个不同的位置：</p>
+<ol>
+<li><p>/etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果使用带有 –system 选项的 git config 时，它会从此文件读写配置变量</p>
+</li>
+<li><p>~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 可以传递 –global 选项让 Git 读写此文件</p>
+</li>
+<li><p>当前使用仓库的 Git 目录中的 config 文件（就是 .git/config）：针对该仓库</p>
+</li>
+</ol>
+<p>且每一个级别覆盖上一级别的配置。</p>
+<ul>
+<li><p>查看你的配置信息： <code>$ git config --list</code></p>
+</li>
+<li><p>用户配置</p>
+<ul>
+<li>配置用户名：<code>$ git config --global user.name &quot;Your Name&quot;</code> </li>
+<li>配置用户邮箱：<code>$ git config --global user.email yourname@example.com</code> </li>
+</ul>
+</li>
+<li><p>文本编辑器配置</p>
+<ul>
+<li>配置你的编辑器为 EMACS：<code>$ git config --global core.editor emacs</code> </li>
+</ul>
+</li>
+<li><p>其他配置请参考以上</p>
+</li>
+</ul>
+<h2 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h2><p>可以查看更加详细的 Git 使用方式。</p>
+<ul>
+<li>获取 Git 命令列表： <code>$ git</code></li>
+<li>获取 Git 命令帮助： <code>$ git help &lt;verb&gt;</code> ，如 <code>$ git help config</code></li>
+</ul>
+<h1 id="Git-本地仓库操作"><a href="#Git-本地仓库操作" class="headerlink" title="Git 本地仓库操作"></a>Git 本地仓库操作</h1><h2 id="初始化-Git-仓库"><a href="#初始化-Git-仓库" class="headerlink" title="初始化 Git 仓库"></a>初始化 Git 仓库</h2><p>使当前目录初始化为一个 Git 仓库： <code>$ git init</code> 。</p>
+<h2 id="状态文件查看"><a href="#状态文件查看" class="headerlink" title="状态文件查看"></a>状态文件查看</h2><p>查看目录下文件在 Git 中的<a href="#jump1">状态</a>： <code>$ git status</code> 。</p>
+<h2 id="添加文件到暂存区"><a href="#添加文件到暂存区" class="headerlink" title="添加文件到暂存区"></a>添加文件到暂存区</h2><p>Git 会提示 Untracked files 来展示未暂存的文件，添加文件到暂存区： <code>$ git add &lt;file name&gt;</code> ，如添加 README.md 文件： <code>$ git add README.md</code> 。</p>
+<p>添加所有未暂存的文件到暂存区： <code>$ git add .</code> 。</p>
+<h2 id="还原修改且未暂存的文件"><a href="#还原修改且未暂存的文件" class="headerlink" title="还原修改且未暂存的文件"></a>还原修改且未暂存的文件</h2><p>修改暂存区的文件后，文件状态会回到未暂存。可以使用： <code>$ git checkout &lt;file name&gt;</code> ，文件会还原到之前在暂存区时的文件。</p>
+<p>该命令十分危险，你所有的更改将会消失并且不可挽回。</p>
+<h2 id="查看修改且未暂存文件的详细差异信息"><a href="#查看修改且未暂存文件的详细差异信息" class="headerlink" title="查看修改且未暂存文件的详细差异信息"></a>查看修改且未暂存文件的详细差异信息</h2><p>虽然 <code>$ git status</code> 可以展示文件的状态，但是不能显示具体的改动。</p>
+<p>使用 <code>$ git diff</code> 可以查看曾在暂存区修改后未暂存文件在修改前后的详细差异信息。</p>
+<h2 id="查看已暂存但未提交的详细差异信息"><a href="#查看已暂存但未提交的详细差异信息" class="headerlink" title="查看已暂存但未提交的详细差异信息"></a>查看已暂存但未提交的详细差异信息</h2><p>文件在一次提交后，经过修改再次存到暂存区，使用 <code>$ git diff --staged</code> 可以查看上次提交与当前暂存文件的详细差异信息。</p>
+<h2 id="将已暂存的文件移除暂存区"><a href="#将已暂存的文件移除暂存区" class="headerlink" title="将已暂存的文件移除暂存区"></a>将已暂存的文件移除暂存区</h2><p><code>$ git rm --cached &lt;file name&gt;</code> ， 如： <code>$ git rm --cached README.md</code> 。  </p>
+<h2 id="提交暂存区文件到本地仓库"><a href="#提交暂存区文件到本地仓库" class="headerlink" title="提交暂存区文件到本地仓库"></a>提交暂存区文件到本地仓库</h2><p><code>$ git commit -m &#39;message&#39;</code> 。 message为提交时必填的附加信息。</p>
+<h2 id="更改提交"><a href="#更改提交" class="headerlink" title="更改提交"></a>更改提交</h2><p>在提交后，发现提交了不需要提交的文件，或者遗漏了要提交的文件，可以在调整暂存区文件后： <code>$ git commit --amend</code> ，该命令会使你的本次提交覆盖上次提交。</p>
+<h2 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h2><p>查看 commit 记录和附加信息： <code>$ git log</code> 。</p>
+<h2 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h2><p><code>$ git init</code> 后， Git 会创建默认分支 master ，但是一般我们并不在其上进行开发，而是新建分支来开发，开发完成后将分支合并到 master 下。</p>
+<p>用 <code>$ git branch</code> 可以查看当前的分支状态。</p>
+<h2 id="新建分支"><a href="#新建分支" class="headerlink" title="新建分支"></a>新建分支</h2><p><code>$ git branch &lt;branch name&gt;</code> ，如创建一个名为 dev 的分支： <code>$ git branch dev</code> 。</p>
+<h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><p><code>git branch -d &lt;branch name&gt;</code> ，如删除一个名为 dev 的分支： <code>git branch -d dev</code> 。</p>
+<p>如果要删除的分支还没有合并到 master 下，使用以上命令删除会失败，但是可以强制删除：<br><code>git branch -D &lt;branch name&gt;</code> 。</p>
+<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><p><code>$ git checkout &lt;branch name&gt;</code> ，如从 master 切换到 dev ： <code>$ git checkout dev</code> 。</p>
+<p>也可以在新建分支的时候就切换到该分支，如： <code>$ git checkout -b dev</code> 。</p>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><p>当在开发分支开发完毕后需要合并到主分支时，首先切换到主分支，然后： <code>$ git merge &lt;dev branch name&gt;</code> 将开发分支合并到主分支。</p>
+<p><code>$ git rebase &lt;dev branch name&gt;</code> 也可以合并分支，这种方式会以时间排序。</p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>标签的意义在于可以精准定位不同时段的代码。</p>
+<p>建立标签： <code>$ git tag &lt;tag name&gt;</code> ，例如设置当前代码为 V1 版本： <code>$ git tag V1</code>  ;经过一段时间的开发后可以设置代码为 V2 版本： <code>$ git tag V2</code> 。</p>
+<p>查看标签：<code>$ git tag</code> 。</p>
+<p>切换标签：可以通过 <code>$ git checkout &lt;tag name&gt;</code> 来切换不同时段的代码，如在开发过程中想回到 V1 时段的代码：<code>$ git checkout V1</code> 。</p>
+<h1 id="Git-远程仓库操作"><a href="#Git-远程仓库操作" class="headerlink" title="Git 远程仓库操作"></a>Git 远程仓库操作</h1><h2 id="本地仓库与远程仓库的关联"><a href="#本地仓库与远程仓库的关联" class="headerlink" title="本地仓库与远程仓库的关联"></a>本地仓库与远程仓库的关联</h2><h3 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h3><p>在<a href="https://github.com/" target="_blank" rel="external">GitHub</a>注册你的账户，需要提供用户名、密码、邮箱。</p>
+<h3 id="生成SSH-KEY"><a href="#生成SSH-KEY" class="headerlink" title="生成SSH KEY"></a>生成SSH KEY</h3><p><code>$ ssh</code> 确认你是否安装了SSH，如果出现 <code>usage:ssh...</code> 则证明你已安装，若未安装请砸电脑。</p>
+<p>然后用 <code>$ ssh-keygen -t rsa</code> (回车回车回车…)在 <code>~/.ssh</code>（Linux/Mac）或 <code>C:\Users\&lt;...&gt;/.ssh</code> (Windows 7)目录下生成私钥 <code>id_rsa</code> 与公钥 <code>id_rsa.pub</code>。打开 <code>id_rsa.pub</code> 并复制公钥内容。</p>
+<h3 id="绑定SSH"><a href="#绑定SSH" class="headerlink" title="绑定SSH"></a>绑定SSH</h3><p>在GitHub中依次：右上角头像旁 ▼–&gt;Settings–&gt;Personal settings–&gt;SSH and GPG keys–&gt;New SSH key。</p>
+<p>将你复制的公钥内容粘贴在出现的Key文本框中，Title文本框中请随意填写。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><code>$ ssh -T git@github.com</code> ,若让你yes请输入yes，不要输入y。然后你会看见 <code>Hi Gril! You&#39;ve successfully authenticated...</code> 。</p>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><h3 id="在本地克隆远程仓库"><a href="#在本地克隆远程仓库" class="headerlink" title="在本地克隆远程仓库"></a>在本地克隆远程仓库</h3><p><code>$ git clone &lt;SSH&gt;</code> 。把一个存在的远程仓库克隆到本地。SSH 可以在 GitHub 的仓库内 Clone or download 下找到。克隆的仓库已经是一个 Git 仓库，不需要初始化操作。</p>
+<h3 id="添加本地仓库为远程仓库"><a href="#添加本地仓库为远程仓库" class="headerlink" title="添加本地仓库为远程仓库"></a>添加本地仓库为远程仓库</h3><p>首先，需要在 GitHub 上建立一个新的仓库，这个新的仓库会提供一个 SSH。</p>
+<p><code>$ git remote add &lt;repository name&gt; &lt;SSH&gt;</code> ，例如：<code>$ git remote add origin git@github.com:yourname/test.git</code> 。</p>
+<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p><code>$ git remote</code> 。一个本地仓库可以对应多个远程仓库，该命令会返回该本地仓库关联的所有远程仓库。</p>
+<h3 id="提交到远程仓库"><a href="#提交到远程仓库" class="headerlink" title="提交到远程仓库"></a>提交到远程仓库</h3><p><code>$  git push &lt;repository name&gt; &lt;branch name&gt;</code> ，例如：<code>$  git push origin master</code> 。 <code>origin</code> 为默认的远程仓库名，<code>master</code> 是默认分支 master 。如果提交到其他分支，可换成其他分支名；如果提交到其他远程仓库，可换成其他远程仓库名。</p>
+<h3 id="同步远程仓库"><a href="#同步远程仓库" class="headerlink" title="同步远程仓库"></a>同步远程仓库</h3><p><code>$ git pull &lt;repository name&gt; &lt;branch name&gt;</code> ，例如：<code>$  git pull origin master</code> 。将远程仓库同步到本地，一般情况下都是先 pull 再 push ，避免冲突。</p>
+<p>注意： <code>$ git pull</code> 与 <code>$ git fetch</code> 都会将远程仓库同步到本地。区别在于 <code>$ git pull</code> 会将远程仓库与本地仓库做合并操作，而 <code>$ git fetch</code> 只会将仓库同步到本地不做任何操作。相对来说， <code>$ git fetch</code> 会更加安全些。</p>
+<h1 id="参考-amp-引用"><a href="#参考-amp-引用" class="headerlink" title="参考 &amp; 引用"></a>参考 &amp; 引用</h1><ul>
+<li><a href="https://git-scm.com/doc" target="_blank" rel="external">Git Book</a></li>
+<li><a href="http://stormzhang.com/" target="_blank" rel="external">stormzhang</a> 的 <a href="http://stormzhang.com/github/2016/06/19/learn-github-from-zero-summary/" target="_blank" rel="external">从0开始学习 GitHub</a></li>
+<li><a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">廖雪峰</a> 的 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/resyin">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处于-Git-中的状态"><span class="toc-number">1.1.</span> <span class="toc-text">文件处于 Git 中的状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本的-Git-工作流程"><span class="toc-number">1.2.</span> <span class="toc-text">基本的 Git 工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-的初始配置"><span class="toc-number">1.4.</span> <span class="toc-text">Git 的初始配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取帮助"><span class="toc-number">1.5.</span> <span class="toc-text">获取帮助</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-本地仓库操作"><span class="toc-number">2.</span> <span class="toc-text">Git 本地仓库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化-Git-仓库"><span class="toc-number">2.1.</span> <span class="toc-text">初始化 Git 仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态文件查看"><span class="toc-number">2.2.</span> <span class="toc-text">状态文件查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加文件到暂存区"><span class="toc-number">2.3.</span> <span class="toc-text">添加文件到暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#还原修改且未暂存的文件"><span class="toc-number">2.4.</span> <span class="toc-text">还原修改且未暂存的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看修改且未暂存文件的详细差异信息"><span class="toc-number">2.5.</span> <span class="toc-text">查看修改且未暂存文件的详细差异信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看已暂存但未提交的详细差异信息"><span class="toc-number">2.6.</span> <span class="toc-text">查看已暂存但未提交的详细差异信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将已暂存的文件移除暂存区"><span class="toc-number">2.7.</span> <span class="toc-text">将已暂存的文件移除暂存区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交暂存区文件到本地仓库"><span class="toc-number">2.8.</span> <span class="toc-text">提交暂存区文件到本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改提交"><span class="toc-number">2.9.</span> <span class="toc-text">更改提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看提交记录"><span class="toc-number">2.10.</span> <span class="toc-text">查看提交记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看分支"><span class="toc-number">2.11.</span> <span class="toc-text">查看分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建分支"><span class="toc-number">2.12.</span> <span class="toc-text">新建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除分支"><span class="toc-number">2.13.</span> <span class="toc-text">删除分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换分支"><span class="toc-number">2.14.</span> <span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并分支"><span class="toc-number">2.15.</span> <span class="toc-text">合并分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-number">2.16.</span> <span class="toc-text">标签</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-远程仓库操作"><span class="toc-number">3.</span> <span class="toc-text">Git 远程仓库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地仓库与远程仓库的关联"><span class="toc-number">3.1.</span> <span class="toc-text">本地仓库与远程仓库的关联</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册GitHub"><span class="toc-number">3.1.1.</span> <span class="toc-text">注册GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成SSH-KEY"><span class="toc-number">3.1.2.</span> <span class="toc-text">生成SSH KEY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定SSH"><span class="toc-number">3.1.3.</span> <span class="toc-text">绑定SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">3.1.4.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">3.2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在本地克隆远程仓库"><span class="toc-number">3.2.1.</span> <span class="toc-text">在本地克隆远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加本地仓库为远程仓库"><span class="toc-number">3.2.2.</span> <span class="toc-text">添加本地仓库为远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看远程仓库"><span class="toc-number">3.2.3.</span> <span class="toc-text">查看远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交到远程仓库"><span class="toc-number">3.2.4.</span> <span class="toc-text">提交到远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步远程仓库"><span class="toc-number">3.2.5.</span> <span class="toc-text">同步远程仓库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考-amp-引用"><span class="toc-number">4.</span> <span class="toc-text">参考 & 引用</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://resyin.github.io/2017/02/18/simple-git-instructions/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&text=简易的 Git 使用"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&is_video=false&description=简易的 Git 使用"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=简易的 Git 使用&body=Check out this article: http://resyin.github.io/2017/02/18/simple-git-instructions/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&title=简易的 Git 使用"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://resyin.github.io/2017/02/18/simple-git-instructions/&name=简易的 Git 使用&description=&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;Git 是一款免费开源的分布式版本控制系统。区别于 Subversion 等版本控制系统将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异，而是对当时的全部文件制作一个快照并保存这个快照的索引。&lt;/p&gt;"><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Red Orange
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/resyin">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
