@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="keywords" content="人社公共服务 医保 养老 工伤 就业指导" />
+	<link rel="shortcut icon" href="../../images/logo.ico" />
+	<title>使用指南</title>
+	<link rel="stylesheet" type="text/css" href="../../css/ggfw.css" />
+	<script type="text/javascript" src="../../js/sbjgcx/jquery.js"></script>
+</head>
+
+<body style="align:center;">
+	<div id="top" data-magellan-expedition="fixed">
+		<div class="row banner-row">
+			<header>
+				<div class="home-header">
+					<div class="banner-logo">
+						<img src="../../images/logo.png" />
+					</div>
+					<div class="banner-title">
+						<img src="../../images/bt.png" />
+					</div>
+					<div class="banner-toolbar">
+						<div class="banner-user">
+							<a id="curuserlink" title="用户信息" href="#" onclick="rsggfw.login.curuserinfo();return false;"></a>
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+	</div>
+	</div>
+	<div class="row" style="width:1024px;margin-left:auto;margin-right:auto; display:table;">
+		<div id="container1" style="OVERFLOW-Y: auto; WIDTH: 260px;HEIGHT: 740px; float: left;">
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-g" onclick="loadpage('ggfwyw');">我的信息</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-ie" onclick="loadpage('qyylbx');">企业养老保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-ig" onclick="loadpage('jgylbx');">机关养老保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-k" onclick="loadpage('ylbx');">医疗保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-j" onclick="loadpage('sybx');">失业保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-le" onclick="loadpage('qygsbx');">企业工伤保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-lg" onclick="loadpage('jggsbx');">机关工伤保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-m" onclick="loadpage('syubx');">生育保险</div>
+			</div>
+			<div class="leftmenu2 cursor-pointer">
+				<div class="fw1icon font2 fw1icon-kc" onclick="loadpage('cjbx');">城居保险</div>
+			</div>
+		</div>
+		<div id="container-right">
+			<div class="row" id="guidecontainer" style="width: 764px; overflow-x: hidden; OVERFLOW-Y: auto; HEIGHT: 740px; float:left;">
+
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="row" style="clear:both;">
+			<table width="100%" height="140" cellpadding="0" cellspacing="0" align="center" id="footer">
+				<tr>
+					<td align="center">
+						<table width="1024px" cellpadding="0" cellspacing="0">
+							<tr height="18"></tr>
+							<!-- <tr height="52">
+								<td width="400"></td>
+								<td align="center">关于我们</td>
+								<td>|</td>
+								<td align="center">使用帮助</td>
+								<td>|</td>
+								<td align="center">法律责任</td>
+								<td width="400"></td>
+							</tr> -->
+							<tr height="40">
+								<td align="center" colspan="7">
+									主办：河北省人力资源和社会保障厅 技术支持：河北东软软件有限公司
+								</td>
+							</tr>
+							<tr height="30"></tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</footer>
+</body>
+<script>
+	loadpage = function(name) {
+		$("#guidecontainer").load("../guide/" + name + ".html");
+	}
+</script>
+
+</html>
