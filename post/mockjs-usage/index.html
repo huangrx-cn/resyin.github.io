@@ -1,22 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://resyin.github.io/site</id>
-    <title>HUANG RESYIN</title>
-    <updated>2020-02-17T12:12:02.644Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://resyin.github.io/site"/>
-    <link rel="self" href="https://resyin.github.io/site/atom.xml"/>
-    <subtitle>Do something.</subtitle>
-    <logo>https://resyin.github.io/site/images/avatar.png</logo>
-    <icon>https://resyin.github.io/site/favicon.ico</icon>
-    <rights>All rights reserved 2020, HUANG RESYIN</rights>
-    <entry>
-        <title type="html"><![CDATA[基于 Mock.js 的前端开发指南]]></title>
-        <id>https://resyin.github.io/site/post/mockjs-usage/</id>
-        <link href="https://resyin.github.io/site/post/mockjs-usage/">
-        </link>
-        <updated>2020-02-17T04:51:40.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="关于-mockjs">关于 Mock.js</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>基于 Mock.js 的前端开发指南 | HUANG RESYIN</title>
+<link rel="shortcut icon" href="https://resyin.github.io/site/favicon.ico?v=1581941425179">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://resyin.github.io/site/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="基于 Mock.js 的前端开发指南 | HUANG RESYIN - Atom Feed" href="https://resyin.github.io/site/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="关于 Mock.js
+Mock.js 能做什么？
+
+能生成随机数据
+能拦截 Ajax 请求
+
+Mock.js 有哪些特点？
+
+前后端分离
+让前端工程师独立于后端进行开发。
+低耦合
+无需修改既有代码，即可拦截 Ajax 请求，返回模拟的响应数..." />
+    <meta name="keywords" content="JavaScript" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://resyin.github.io/site">
+  <img class="avatar" src="https://resyin.github.io/site/images/avatar.png?v=1581941425179" alt="">
+  </a>
+  <h1 class="site-title">
+    HUANG RESYIN
+  </h1>
+  <p class="site-description">
+    Do something.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/resyin" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              基于 Mock.js 的前端开发指南
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-02-17
+              </span>
+              <span>
+                13 min read
+              </span>
+              
+                <a href="https://resyin.github.io/site/tag/icYCc8ATC/" class="post-tag">
+                  # JavaScript
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="关于-mockjs">关于 Mock.js</h2>
 <p><a href="http://mockjs.com/">Mock.js</a> 能做什么？</p>
 <ul>
 <li>能生成随机数据</li>
@@ -473,6 +564,81 @@ Mock.mock(/\/api\/news/, &quot;put&quot;, opts =&gt; {
   return ret;
 });
 </code></pre>
-]]></content>
-    </entry>
-</feed>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%85%B3%E4%BA%8E-mockjs">关于 Mock.js</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-mockjs">安装 Mock.js</a></li>
+<li><a href="#%E6%8B%A6%E6%88%AA-ajax-%E8%AF%B7%E6%B1%82">拦截 Ajax 请求</a></li>
+<li><a href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%8D%AE">生成随机数据</a></li>
+<li><a href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83">语法规范</a></li>
+<li><a href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5">增删改查</a></li>
+<li><a href="#%E5%85%B3%E8%81%94%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C">关联增删改查操作</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  <span style="margin-right:10px;">Powered by</span><a href="http://resyin.com/" target="_blank">HUANG RESYIN</a>
+  <a class="rss" href="https://resyin.github.io/site/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
