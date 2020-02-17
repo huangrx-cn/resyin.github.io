@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>基于 Mock.js 的前端开发指南 | HUANG RESYIN</title>
-<link rel="shortcut icon" href="https://resyin.github.io/site/favicon.ico?v=1581941425179">
+<link rel="shortcut icon" href="https://resyin.github.io/site/favicon.ico?v=1581944665572">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://resyin.github.io/site/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="基于 Mock.js 的前端开发指南 | HUANG RESYIN - Atom Feed" href="https://resyin.github.io/site/atom.xml">
@@ -32,7 +32,7 @@ Mock.js 有哪些特点？
       <div class="main-content">
         <div class="site-header">
   <a href="https://resyin.github.io/site">
-  <img class="avatar" src="https://resyin.github.io/site/images/avatar.png?v=1581941425179" alt="">
+  <img class="avatar" src="https://resyin.github.io/site/images/avatar.png?v=1581944665572" alt="">
   </a>
   <h1 class="site-title">
     HUANG RESYIN
@@ -96,7 +96,7 @@ Mock.js 有哪些特点？
                 2020-02-17
               </span>
               <span>
-                13 min read
+                14 min read
               </span>
               
                 <a href="https://resyin.github.io/site/tag/icYCc8ATC/" class="post-tag">
@@ -128,26 +128,18 @@ Mock.js 有哪些特点？
 <li>简单易用</li>
 </ul>
 <p><strong>基于以上特点，Mock.js 被广泛应用于前端开发中，以保证开发效率与进度。</strong></p>
-<h2 id="安装-mockjs">安装 Mock.js</h2>
+<h2 id="安装">安装</h2>
 <p>Mock.js 允许多种安装方式：</p>
-<ul>
-<li>
-<p>浏览器引入</p>
+<p><strong>浏览器引入</strong></p>
 <p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://mockjs.com//dist/mock.js&quot;&gt;&lt;/script&gt;</code></p>
-</li>
-<li>
-<p>使用 npm 或 yarn 安装</p>
+<p><strong>使用 npm 或 yarn 安装</strong></p>
 <ul>
 <li><code>$ npm install mockjs --save</code></li>
 <li><code>$ yarn add mockjs</code></li>
 </ul>
-</li>
-</ul>
 <h2 id="拦截-ajax-请求">拦截 Ajax 请求</h2>
 <p>以 <a href="https://cli.vuejs.org/">Vue CLI</a> 生成的项目为例，安装 <a href="(https://github.com/axios/axios)">Axios</a> 发送 Ajax 请求。</p>
-<ol>
-<li>
-<p>引用 Mock.js</p>
+<p><strong>引用 Mock.js</strong></p>
 <p>安装完成 Mock.js 后，在项目 src 目录下新建 mock 目录及 index.js 文件，引用 Mock.js：</p>
 <pre><code class="language-js">// in src/mock/index.js
 import Mock from &quot;mockjs&quot;;
@@ -159,23 +151,21 @@ import &quot;./mock&quot;;
 import axios from &quot;axios&quot;;
 Vue.prototype.$http = axios;
 </code></pre>
-</li>
-<li>
-<p>使用 <a href="https://github.com/nuysoft/Mock/wiki/Mock.mock()">Mock.mock()</a></p>
-<p><code>Mock.mock( rurl?, rtype?, template|function( options ) )</code> ：</p>
+<p><strong>使用 <a href="https://github.com/nuysoft/Mock/wiki/Mock.mock()">Mock.mock()</a></strong></p>
+<p><code>Mock.mock( rurl?, rtype?, template|function( options ) )</code></p>
 <ul>
-<li>rurl<br>
+<li><code>rurl</code><br>
 可选参数，表示需要拦截的 Ajax URL，可以是 URL 字符串或 URL 正则。<br>
 例如 //domain/list.json/、'/domian/list.json'。</li>
-<li>rtype<br>
+<li><code>rtype</code><br>
 可选参数，表示需要拦截的 Ajax 请求类型。<br>
 例如 GET、POST、PUT、DELETE 等。</li>
-<li>template<br>
+<li><code>template</code><br>
 可选参数，表示数据模板，可以是对象或字符串。</li>
-<li>function(options)<br>
+<li><code>function(options)</code><br>
 可选参数，表示用于生成响应数据的函数。
 <ul>
-<li>options<br>
+<li><code>options</code><br>
 指向本次请求的 Ajax 选项集，含有 url、type 和 body 三个属性，参见 XMLHttpRequest 规范。</li>
 </ul>
 </li>
@@ -207,16 +197,14 @@ Mock.mock(&quot;/api/news&quot;, &quot;get&quot;, {
     ]
 });
 </code></pre>
-<p>当发起网络请求时：</p>
+<p>网络请求方法：</p>
 <pre><code class="language-js">// in any.vue
 async getNews() {
-  const { data: res } = await this.$http({ url: &quot;/api/news&quot; });
-  console.log(&quot;get&quot;, res);
+    const { data: res } = await this.$http({ url: &quot;/api/news&quot; });
+    console.log(&quot;get&quot;, res);
 }
 </code></pre>
 <p>控制台中可见，响应数据为编写的测试数据，至此 Mock.js 拦截了 Ajax 请求。</p>
-</li>
-</ol>
 <h2 id="生成随机数据">生成随机数据</h2>
 <p>Mock.js 提供了多种数据类型：</p>
 <ul>
@@ -429,10 +417,8 @@ Mock.mock(&quot;/api/news&quot;, &quot;get&quot;, {
 });
 </code></pre>
 <h2 id="增删改查">增删改查</h2>
-<p>业务场景中除了查询，新增、删除、修改同样重要。</p>
-<ol>
-<li>
-<p>拦截 Post 请求</p>
+<p>除了拦截 <code>GET</code> 请求，Mock.js 同样支持 <code>POST</code> 、<code>DELETE</code>、<code>PUT</code> 请求：</p>
+<p><strong>拦截 POST 请求</strong></p>
 <pre><code class="language-js">// in src/mock/index.js
 Mock.mock(&quot;/api/news&quot;, &quot;post&quot;, opts =&gt; {
     let result = JSON.parse(opts.body);
@@ -445,24 +431,22 @@ Mock.mock(&quot;/api/news&quot;, &quot;post&quot;, opts =&gt; {
 </code></pre>
 <pre><code class="language-js">// in any.vue
 async onCreate() {
-  const { data: res } = await this.$http({
+    const { data: res } = await this.$http({
     url: `/api/news`,
     method: &quot;post&quot;,
     data: {
-      title: &quot;前端组件设计原则&quot;,
-      img:
+        title: &quot;前端组件设计原则&quot;,
+        img:
         &quot;https://user-gold-cdn.xitu.io/2019/1/24/16880541998cbc09?imageView2/0/w/1280/h/960/format/webp/ignore-error/1&quot;,
-      publishedAt: &quot;2018-11-02&quot;,
-      author: &quot;Andrew Dinihan&quot;,
-      url: &quot;https://juejin.im/post/5c49cff56fb9a049bd42a90f&quot;
+        publishedAt: &quot;2018-11-02&quot;,
+        author: &quot;Andrew Dinihan&quot;,
+        url: &quot;https://juejin.im/post/5c49cff56fb9a049bd42a90f&quot;
     }
-  });
-  console.log(&quot;post&quot;, res);
+    });
+    console.log(&quot;post&quot;, res);
 },
 </code></pre>
-</li>
-<li>
-<p>拦截 Delete 请求</p>
+<p><strong>拦截 DELETE 请求</strong></p>
 <p>通常 Delete 请求会将 ID 作为 Path 参数放在 URL 中传递，此时需要使用正则表达式匹配 URL，并获取 Path 参数。</p>
 <pre><code class="language-js">// in src/mock/index.js
 Mock.mock(/\/api\/news/, &quot;delete&quot;, opts =&gt; {
@@ -483,11 +467,10 @@ async onDelete(news) {
     console.log(&quot;delete&quot;, res);
 },
 </code></pre>
-</li>
-<li>
-<p>拦截 PUT 请求</p>
+<p><strong>拦截 PUT 请求</strong></p>
 <p>与 Delete 拦截方式一致。</p>
-<pre><code class="language-js">Mock.mock(/\/api\/news/, &quot;put&quot;, opts =&gt; {
+<pre><code class="language-js">// in src/mock/index.js
+Mock.mock(/\/api\/news/, &quot;put&quot;, opts =&gt; {
     const pathArray = /\/api\/news\/([\w\\-]+)/.exec(opts.url);
     const id = pathArray[1];
     let result = JSON.parse(opts.body);
@@ -500,23 +483,21 @@ async onDelete(news) {
 </code></pre>
 <pre><code class="language-js">// in any.vue
 async onUpdate(news) {
-  const { data: res } = await this.$http({
+    const { data: res } = await this.$http({
     url: `/api/news/${news.id}`,
     method: &quot;put&quot;,
     data: {
-      title: &quot;正则全攻略使用手册&quot;,
-      img: &quot;https://segmentfault.com/img/bVbnRSc?w=650&amp;h=255&quot;,
-      publishedAt: &quot;2019-01-28&quot;,
-      author: &quot;Croc_wend&quot;,
-      url: &quot;https://segmentfault.com/a/1190000018042746&quot;
+        title: &quot;正则全攻略使用手册&quot;,
+        img: &quot;https://segmentfault.com/img/bVbnRSc?w=650&amp;h=255&quot;,
+        publishedAt: &quot;2019-01-28&quot;,
+        author: &quot;Croc_wend&quot;,
+        url: &quot;https://segmentfault.com/a/1190000018042746&quot;
     }
-  });
-  console.log(&quot;update&quot;, res);
+    });
+    console.log(&quot;update&quot;, res);
 }
 </code></pre>
-</li>
-</ol>
-<h2 id="关联增删改查操作">关联增删改查操作</h2>
+<h2 id="关联-mock-数据">关联 Mock 数据</h2>
 <p>上一节中的增删改查操作虽然在 Ajax 请求时被拦截，但是彼此间并无关联，数据并无变更。此时可以将 4 者关联（该节与 Mock.js 无关，纯粹的 JavaScript 操作）。</p>
 <pre><code class="language-js">import Mock from &quot;mockjs&quot;;
 
@@ -564,6 +545,38 @@ Mock.mock(/\/api\/news/, &quot;put&quot;, opts =&gt; {
   return ret;
 });
 </code></pre>
+<h2 id="动态开启">动态开启</h2>
+<p>项目中可以使用 npm script 编辑启动命令，通过环境变量来控制是否加载 Mock 服务。</p>
+<p>以 <a href="https://cli.vuejs.org/zh/guide/mode-and-env.html">Vue CLI</a> 为例，在 <code>development</code> 模式下，增加 Mock 服务的启动命令：</p>
+<p><strong>新增 serve:mock</strong></p>
+<pre><code class="language-json">// in package.json
+{
+    &quot;scripts&quot;: {
+        &quot;serve&quot;: &quot;vue-cli-service serve&quot;,
+        &quot;serve:mock&quot;: &quot;vue-cli-service serve --mode mock&quot;,
+        &quot;build&quot;: &quot;vue-cli-service build&quot;,
+        &quot;lint&quot;: &quot;vue-cli-service lint&quot;
+    } 
+},
+</code></pre>
+<p><strong>新建 .env.mock 文件</strong></p>
+<pre><code class="language-txt">NODE_ENV=development
+VUE_APP_MOCK=true
+</code></pre>
+<p><strong>判断环境变量是否启用 Mock 服务</strong></p>
+<pre><code class="language-js">// in src/mock/index.js
+import Mock from &quot;mockjs&quot;;
+
+if (
+  process.env.NODE_ENV === &quot;development&quot; &amp;&amp;
+  process.env.VUE_APP_MOCK === &quot;true&quot;
+) {
+    // your mock code
+}
+</code></pre>
+<p>此时当你运行 <code>$ npm run serve</code>，Mock 服务未启用，请求 API 服务；当你运行 <code>$ npm run serve:mock</code>，Mock 服务启用，Ajax 请求被拦截。</p>
+<h2 id="结语">结语</h2>
+<p><a href="https://github.com/resyin/mockjs-usage">示例代码</a>，欢迎一起玩耍。</p>
 
               </div>
               <div class="toc-container">
@@ -571,12 +584,14 @@ Mock.mock(/\/api\/news/, &quot;put&quot;, opts =&gt; {
 <li>
 <ul>
 <li><a href="#%E5%85%B3%E4%BA%8E-mockjs">关于 Mock.js</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85-mockjs">安装 Mock.js</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
 <li><a href="#%E6%8B%A6%E6%88%AA-ajax-%E8%AF%B7%E6%B1%82">拦截 Ajax 请求</a></li>
 <li><a href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%8D%AE">生成随机数据</a></li>
 <li><a href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83">语法规范</a></li>
 <li><a href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5">增删改查</a></li>
-<li><a href="#%E5%85%B3%E8%81%94%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C">关联增删改查操作</a></li>
+<li><a href="#%E5%85%B3%E8%81%94-mock-%E6%95%B0%E6%8D%AE">关联 Mock 数据</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E5%BC%80%E5%90%AF">动态开启</a></li>
+<li><a href="#%E7%BB%93%E8%AF%AD">结语</a></li>
 </ul>
 </li>
 </ul>
