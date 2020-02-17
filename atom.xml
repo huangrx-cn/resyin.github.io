@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://resyin.github.io/site</id>
     <title>HUANG RESYIN</title>
-    <updated>2020-02-17T13:09:31.050Z</updated>
+    <updated>2020-02-17T13:17:50.351Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://resyin.github.io/site"/>
     <link rel="self" href="https://resyin.github.io/site/atom.xml"/>
@@ -469,7 +469,7 @@ Mock.mock(/\/api\/news/, &quot;put&quot;, opts =&gt; {
 },
 </code></pre>
 <p><strong>新建 .env.mock 文件</strong></p>
-<pre><code class="language-txt">NODE_ENV=development
+<pre><code>NODE_ENV=development
 VUE_APP_MOCK=true
 </code></pre>
 <p><strong>判断环境变量是否启用 Mock 服务</strong></p>
