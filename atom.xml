@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://resyin.github.io/site</id>
+    <id>https://resyin.github.io</id>
     <title>HUANG RESYIN</title>
-    <updated>2020-02-17T13:33:00.814Z</updated>
+    <updated>2020-02-17T13:39:30.676Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://resyin.github.io/site"/>
-    <link rel="self" href="https://resyin.github.io/site/atom.xml"/>
+    <link rel="alternate" href="https://resyin.github.io"/>
+    <link rel="self" href="https://resyin.github.io/atom.xml"/>
     <subtitle>Do something.</subtitle>
-    <logo>https://resyin.github.io/site/images/avatar.png</logo>
-    <icon>https://resyin.github.io/site/favicon.ico</icon>
+    <logo>https://resyin.github.io/images/avatar.png</logo>
+    <icon>https://resyin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HUANG RESYIN</rights>
     <entry>
         <title type="html"><![CDATA[基于 Mock.js 的前端开发指南]]></title>
-        <id>https://resyin.github.io/site/post/mockjs-usage/</id>
-        <link href="https://resyin.github.io/site/post/mockjs-usage/">
+        <id>https://resyin.github.io/post/mockjs-usage/</id>
+        <link href="https://resyin.github.io/post/mockjs-usage/">
         </link>
         <updated>2020-02-17T04:51:40.000Z</updated>
         <content type="html"><![CDATA[<h2 id="关于-mockjs">关于 Mock.js</h2>
