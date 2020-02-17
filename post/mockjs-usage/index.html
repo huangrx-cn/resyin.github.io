@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>基于 Mock.js 的前端开发指南 | HUANG RESYIN</title>
-<link rel="shortcut icon" href="https://resyin.github.io/site/favicon.ico?v=1581944665572">
+<link rel="shortcut icon" href="https://resyin.github.io/site/favicon.ico?v=1581944968120">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://resyin.github.io/site/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="基于 Mock.js 的前端开发指南 | HUANG RESYIN - Atom Feed" href="https://resyin.github.io/site/atom.xml">
@@ -32,7 +32,7 @@ Mock.js 有哪些特点？
       <div class="main-content">
         <div class="site-header">
   <a href="https://resyin.github.io/site">
-  <img class="avatar" src="https://resyin.github.io/site/images/avatar.png?v=1581944665572" alt="">
+  <img class="avatar" src="https://resyin.github.io/site/images/avatar.png?v=1581944968120" alt="">
   </a>
   <h1 class="site-title">
     HUANG RESYIN
@@ -310,7 +310,7 @@ Mock.mock(&quot;/api/news&quot;, &quot;get&quot;, {
     results: [
         {
             id: &quot;@guid&quot;, // 生成 UUID
-            title: &quot;@ctitle(3,5)&quot;, // 生成 2-5 字的中文标题
+            title: &quot;@ctitle(3,5)&quot;, // 生成 3-5 字的中文标题
             img: &quot;@dataImage('200x100')&quot;, // 生成 200px*100px 的图片 Base64
             publishedAt: &quot;@date('yyyy-MM-dd')&quot;, // 生成 yyyy-MM-dd 格式的日期
             author: &quot;@name(true)&quot;, // 生成英文姓名
@@ -407,7 +407,7 @@ Mock.mock(&quot;/api/news&quot;, &quot;get&quot;, {
     &quot;results|5-10&quot;: [
         {
             id: &quot;@guid&quot;, // 生成 UUID
-            title: &quot;@ctitle(3,5)&quot;, // 生成 2-5 字的中文标题
+            title: &quot;@ctitle(3,5)&quot;, // 生成 3-5 字的中文标题
             img: &quot;@dataImage('200x100')&quot;, // 生成 200px*100px 的图片 Base64
             publishedAt: &quot;@date('yyyy-MM-dd')&quot;, // 生成 yyyy-MM-dd 格式的日期
             author: &quot;@name(true)&quot;, // 生成英文姓名
@@ -506,7 +506,7 @@ let ret = Mock.mock({
   &quot;results|5-10&quot;: [
     {
       id: &quot;@guid&quot;, // 生成 UUID
-      title: &quot;@ctitle(3,5)&quot;, // 生成 2-5 字的中文标题
+      title: &quot;@ctitle(3,5)&quot;, // 生成 3-5 字的中文标题
       img: &quot;@dataImage('200x100')&quot;, // 生成 200px*100px 的图片 Base64
       publishedAt: &quot;@date('yyyy-MM-dd')&quot;, // 生成 yyyy-MM-dd 格式的日期
       author: &quot;@name(true)&quot;, // 生成英文姓名
