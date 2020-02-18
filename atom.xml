@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://resyin.github.io</id>
     <title>HUANG RESYIN</title>
-    <updated>2020-02-18T01:01:44.431Z</updated>
+    <updated>2020-02-18T01:08:18.360Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://resyin.github.io"/>
     <link rel="self" href="https://resyin.github.io/atom.xml"/>
@@ -40,7 +40,7 @@
 <h2 id="安装">安装</h2>
 <p>Mock.js 允许多种安装方式：</p>
 <p><strong>浏览器引入</strong></p>
-<p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://mockjs.com//dist/mock.js&quot;&gt;&lt;/script&gt;</code></p>
+<p><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://mockjs.com/dist/mock.js&quot;&gt;&lt;/script&gt;</code></p>
 <p><strong>使用 npm 或 yarn 安装</strong></p>
 <ul>
 <li><code>$ npm install mockjs --save</code></li>
