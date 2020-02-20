@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://resyin.github.io</id>
     <title>HUANG RESYIN</title>
-    <updated>2020-02-20T10:59:37.289Z</updated>
+    <updated>2020-02-20T11:14:22.841Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://resyin.github.io"/>
     <link rel="self" href="https://resyin.github.io/atom.xml"/>
@@ -12,10 +12,10 @@
     <rights>All rights reserved 2020, HUANG RESYIN</rights>
     <entry>
         <title type="html"><![CDATA[2019-nCoV]]></title>
-        <id>https://resyin.github.io/post/a-planet-of-viruses/</id>
-        <link href="https://resyin.github.io/post/a-planet-of-viruses/">
+        <id>https://resyin.github.io/post/2019-nCoV/</id>
+        <link href="https://resyin.github.io/post/2019-nCoV/">
         </link>
-        <updated>2020-02-18T12:07:29.000Z</updated>
+        <updated>2020-02-20T12:07:29.000Z</updated>
         <content type="html"><![CDATA[<h2 id="2019">2019</h2>
 <p>年末，互联网就有关于SARS出现的传言。虽然对于2002年非典的记忆已经零碎，但是SARS可以通过人际传播、10%的致死率还是让我突然紧张，像老妈子一样告诉家人少出门、戴口罩、多通风、勤洗手。</p>
 <p>随后官方紧急辟谣，造谣者被训诫。</p>
