@@ -3,7 +3,7 @@
     <meta charset="utf-8"/>
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>《火焰纹章：风花雪月》养成记录 | HUANG RESYIN</title>
+<title>在 Vue Router 中使用 HTML5 History 模式 | HUANG RESYIN</title>
 <link rel="shortcut icon" href="https://resyin.github.io/favicon.ico?v=1586758859759">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://resyin.github.io/styles/main.css">
@@ -87,59 +87,76 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    《火焰纹章：风花雪月》养成记录
+                    在 Vue Router 中使用 HTML5 History 模式
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2020-02-21 ·
+                        · 2020-04-13 ·
                     </time>
-                    
-                        <a href="https://resyin.github.io/tag/you-xi/" class="post-tags">
-                            # 游戏
-                        </a>
                     
                 </div>
                 <div class="post-content">
-                    <h2 id="贝雷丝">贝雷丝</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">职业</th>
-<th style="text-align:left">转职要求</th>
-<th style="text-align:left">职业特技</th>
-<th style="text-align:left">精通特技</th>
-<th style="text-align:left">精通战技</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">平民</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-</tr>
-<tr>
-<td style="text-align:left">剑客</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-</tr>
-<tr>
-<td style="text-align:left">盗贼</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">-</td>
-</tr>
-</tbody>
-</table>
+                    <p>Vue Router 目前支持三种模式：</p>
+<ul>
+<li>hash 使用 URL hash 实现页面跳转。支持所有浏览器，但会在 URL 中携带 # 号。Vue Router 的默认模式。</li>
+<li>history 使用 HTML5 History API 实现页面跳转。支持实现 <a href="https://caniuse.com/#search=pushState">history.pushState</a> 的浏览器，需服务器配合。</li>
+<li>abstract 支持 Node.js 服务端环境。</li>
+</ul>
+<p>使用 history 模式时需要对前端代码及服务器进行相关配置，并且根据部署位置（在域名的根路径下或子路径下），配置也略有差异。</p>
+<p>以标准的 Vue CLI 项目与 Nignx 服务器为例：</p>
+<h2 id="部署在-httphostport">部署在 http://host:port/</h2>
+<p><strong>前端配置</strong></p>
+<pre><code class="language-router.js">const router = new VueRouter({
+  mode: &quot;history&quot;
+  routes
+});
+</code></pre>
+<pre><code class="language-vue.config.js">module.exports = {
+  publicPath: &quot;/&quot;
+};
+</code></pre>
+<p><strong>服务器配置</strong></p>
+<pre><code class="language-nginx.conf">location / {
+    # root &lt;your_web_files_path&gt;;
+    index  index.html;
+    try_files $uri $uri/ /index.html;
+}
+</code></pre>
+<h3 id="部署在-httphostportcontext">部署在 http://host:port/context/</h3>
+<p><strong>前端配置</strong></p>
+<pre><code class="language-router.js">const router = new VueRouter({
+  mode: &quot;history&quot;,
+  base: process.env.BASE_URL,
+  routes
+});
+</code></pre>
+<pre><code class="language-vue.config.js">module.exports = {
+  publicPath: process.env.NODE_ENV === &quot;production&quot; ? &quot;/context/&quot; : &quot;/&quot;,
+};
+</code></pre>
+<p>其中 process.env.BASE_URL 等价于 publicPath，即 context 的值。</p>
+<p><strong>服务器配置</strong></p>
+<pre><code class="language-nginx.conf">location / {
+    index  index.html;
+}
+location /context/ {
+    # alias &lt;your_web_files_path&gt;;
+    index index.html;
+    try_files $uri $uri/ /context/index.html;
+}
+</code></pre>
 
                 </div>
             </article>
         </div>
 
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://resyin.github.io/post/mockjs-usage/" class="post-title gt-a-link">
+                    基于 Mock.js 的前端开发指南
+                </a>
+            </div>
         
 
         
