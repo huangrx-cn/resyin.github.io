@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>在 Vue Router 中使用 HTML5 History 模式 | HUANG RESYIN</title>
-<link rel="shortcut icon" href="https://resyin.github.io/favicon.ico?v=1586759576634">
+<link rel="shortcut icon" href="https://resyin.github.io/favicon.ico?v=1586931642579">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://resyin.github.io/styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -110,17 +110,20 @@
 <p>以标准的 Vue CLI 项目与 Nignx 服务器为例：</p>
 <h2 id="部署在-httphostport">部署在 http://host:port/</h2>
 <p><strong>前端配置</strong></p>
-<pre><code class="language-router.js">const router = new VueRouter({
+<pre><code class="language-router.js">// router.js
+const router = new VueRouter({
   mode: &quot;history&quot;
   routes
 });
 </code></pre>
-<pre><code class="language-vue.config.js">module.exports = {
+<pre><code class="language-vue.config.js">// vue.config.js
+module.exports = {
   publicPath: &quot;/&quot;
 };
 </code></pre>
 <p><strong>服务器配置</strong></p>
-<pre><code class="language-nginx.conf">location / {
+<pre><code class="language-nginx.conf"># nginx.conf
+location / {
     # root &lt;your_web_files_path&gt;;
     index  index.html;
     try_files $uri $uri/ /index.html;
@@ -128,27 +131,28 @@
 </code></pre>
 <h2 id="部署在-httphostportcontext">部署在 http://host:port/context/</h2>
 <p><strong>前端配置</strong></p>
-<pre><code class="language-router.js">const router = new VueRouter({
+<pre><code class="language-router.js">// router.js
+const router = new VueRouter({
   mode: &quot;history&quot;,
   base: process.env.BASE_URL,
   routes
 });
 </code></pre>
-<pre><code class="language-vue.config.js">module.exports = {
+<pre><code class="language-vue.config.js">// vue.config.js
+module.exports = {
   publicPath: process.env.NODE_ENV === &quot;production&quot; ? &quot;/context/&quot; : &quot;/&quot;,
 };
 </code></pre>
 <p>其中 process.env.BASE_URL 等价于 publicPath，即 context 的值。</p>
 <p><strong>服务器配置</strong></p>
-<pre><code class="language-nginx.conf">location / {
-    index  index.html;
-}
+<pre><code class="language-nginx.conf"># nginx.conf
 location /context/ {
     # alias &lt;your_web_files_path&gt;;
     index index.html;
     try_files $uri $uri/ /context/index.html;
 }
 </code></pre>
+<p>注意，PWA 的输出文件 <code>index.html</code>，与 Nginx config 中的 <code>index.html</code> 相对应，如输出文件名自定义，Nginx config 也需要与其保持一致。</p>
 
                 </div>
             </article>
